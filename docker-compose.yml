@@ -1,0 +1,14 @@
+version: "3"
+services:
+    mssql:
+        image: "mcr.microsoft.com/mssql/server"
+        environment:
+            SA_PASSWORD: "SQL_strong_password_123!"
+            ACCEPT_EULA: "Y"
+        ports:
+            - 1433:1433
+    rabbitmq:
+        image: rabbitmq:3-management
+        ports:
+            - 5672:5672
+            - 15672:15672
