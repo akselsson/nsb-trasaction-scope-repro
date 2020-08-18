@@ -19,6 +19,7 @@ namespace App
                 "Data Source=localhost;Initial Catalog=tempdb;User ID=sa;Password=SQL_strong_password_123!"));
             persistence.SqlDialect<SqlDialect.MsSqlServer>();
 
+            endpointConfiguration.UnitOfWork().WrapHandlersInATransactionScope();
             endpointConfiguration.EnableOutbox().UseTransactionScope();
 
             var startableEndpoint = await Endpoint.Create(endpointConfiguration);
